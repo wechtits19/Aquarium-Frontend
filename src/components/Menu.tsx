@@ -45,6 +45,12 @@ const appPages: AppPage[] = [
         url: '/home',
         iosIcon: homeOutline,
         mdIcon: homeSharp
+    },
+    {
+        title: 'Register',
+        url: '/register',
+        iosIcon: addOutline,
+        mdIcon: addOutline
     }
 ];
 
