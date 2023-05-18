@@ -23,14 +23,14 @@ import {
     logInOutline,
     logOutSharp,
     logOutOutline,
-    addSharp, addOutline, alarmOutline, alarmSharp, alertOutline, alertSharp, logIn
+    addSharp, addOutline, alarmOutline, alarmSharp, alertOutline, alertSharp, logIn, flower
 } from 'ionicons/icons';
 import './Menu.css';
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector, useStore} from "react-redux";
 import {RootState} from "../reducers";
 import {isNotExpired} from "../services/rest/security-helper";
-import {loggedOut} from "../actions/users";
+import {loggedOut} from "../services/actions/users";
 
 interface AppPage {
     url: string;
@@ -74,6 +74,13 @@ const Menu: React.FC = () => {
     var securityItem = null;
 
     if (isNotExpired(authenticationInformation)) {
+        AddMenu(
+            {
+                title: 'Corals & Animals',
+                url: '/items',
+                iosIcon: listSharp,
+                mdIcon: listSharp
+            });
         securityItem = {
             title: 'Logout ' + user?.fullName,
             url: '/home',
@@ -83,8 +90,6 @@ const Menu: React.FC = () => {
                 dispatch(loggedOut())
             }
         }
-
-
     } else {
         securityItem =
             {
@@ -97,7 +102,6 @@ const Menu: React.FC = () => {
             }
 
         secureAppPage = [];
-
     }
 
     return (

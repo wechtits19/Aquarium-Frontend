@@ -14,7 +14,7 @@ import {useDispatch} from 'react-redux';
 import {BuildForm, FormDescription} from "../../services/utils/form-builder";
 import {RouteComponentProps} from "react-router";
 import {LoginRequest, User, UserClient, UserResponse} from "../../services/rest/interface";
-import {loggedIn} from "../../actions/users";
+import {loggedIn} from "../../services/actions/users";
 import {executeDelayed} from "../../services/utils/async-helpers";
 import {IConfig} from "../../services/rest/iconfig";
 import config from '../../services/rest/server-config';

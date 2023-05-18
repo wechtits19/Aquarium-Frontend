@@ -6,7 +6,7 @@ import {Provider} from "react-redux";
 import {combineReducers} from "redux";
 import store from "./services/store";
 import {loadUserData} from "./services/rest/security-helper";
-import {loggedIn} from "./actions/users";
+import {loggedIn} from "./services/actions/users";
 import rootReducer from "./reducers";
 
 const AppReducer = combineReducers({

@@ -14,7 +14,7 @@ import {useDispatch} from 'react-redux';
 import {BuildForm, FormDescription} from "../../services/utils/form-builder";
 import {RouteComponentProps} from "react-router";
 import {LoginRequest, UserClient, UserResponse} from "../../services/rest/interface";
-import {loggedIn} from "../../actions/users";
+import {loggedIn} from "../../services/actions/users";
 import {executeDelayed} from "../../services/utils/async-helpers";
 import {IConfig} from "../../services/rest/iconfig";
 import config from '../../services/rest/server-config';
@@ -64,7 +64,7 @@ export const Login: React.FunctionComponent<RouteComponentProps<any>> = (props) 
                             ? loginInfo.data?.user : {}))),
                     jwtStore.set('authentication',
                         JSON.stringify((loginInfo.data?.authenticationInformation && typeof loginInfo.data?.authenticationInformation === 'object'
-                            ? loginInfo.data?.user : {})))])
+                            ? loginInfo.data?.authenticationInformation : {})))])
                     .then(() => {
                         executeDelayed(200, () => props.history.replace('/home'))
                     })
