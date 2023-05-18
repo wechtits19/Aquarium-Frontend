@@ -5,6 +5,7 @@ import {RootState} from "../../reducers";
 import {AnyAction} from "redux";
 import {IConfig} from "../rest/iconfig";
 import config from "../rest/server-config";
+import {currentaquarium} from "../../reducers/users";
 
 export const fetchCoralsActions = createAsyncAction(
     'FETCH_CORALS_REQUEST',
@@ -28,8 +29,9 @@ export const fetchCoralsAction = (): ThunkAction<Promise<CoralsResult>, RootStat
         // accessheader.getAuthorization()
         const aquariumClient = new AquariumClient(accessheader, config.host);
 
-        // return aquariumClient.getCorals(getState().currentaquarium.name!)
-        return aquariumClient.getCorals("SchiScho")
+        //ToDo: Remove the default SchiScho aquarium and implement something better
+        return aquariumClient.getCorals('SchiScho')
+            // return aquariumClient.getCorals(currentaquarium.name ?? 'SchiScho')
             .then(
                 corals => dispatch(fetchCoralsActions.success(corals))
             )
@@ -48,7 +50,7 @@ export const fetchAnimalsAction = (): ThunkAction<Promise<AnimalsResult>, RootSt
         // accessheader.getAuthorization()
         const aquariumClient = new AquariumClient(accessheader, config.host);
 
-        return aquariumClient.getAnimals("SchiScho")
+        return aquariumClient.getAnimals('SchiScho')
             .then(
                 animals => dispatch(fetchAnimalsActions.success(animals))
             )

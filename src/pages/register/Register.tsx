@@ -91,6 +91,7 @@ export const Register: React.FunctionComponent<RouteComponentProps<any>> = (prop
 
             <IonContent>
                 <Form handleSubmit={submit}/>
+                <IonButton expand='block' onClick={() => props.history.push('/login')}>Login</IonButton>
             </IonContent>
         </IonPage>
     );
