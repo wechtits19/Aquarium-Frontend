@@ -67,6 +67,10 @@ const ItemsList: React.FC<RouteComponentProps> = ({history}) => {
         console.log(corals);
         console.log(animals);
     }, []);
+    useEffect(() => {
+        console.log(corals);
+    }, []);
+
     const NoValuesInfo = () => !isLoading && corals.length == 0 ?
         (<IonCard>
             {/*<img src='assets/images/img.png'></img>*/}
