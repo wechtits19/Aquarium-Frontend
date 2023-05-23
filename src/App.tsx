@@ -30,6 +30,7 @@ import ItemsList from "./pages/items/ItemsList";
 import ItemDetail from "./pages/items/ItemDetail";
 import AddItem from "./pages/items/AddItem";
 import EditItem from "./pages/items/EditItem";
+import ShowValues from "./pages/values/ShowValues";
 
 setupIonicReact();
 
@@ -50,6 +51,7 @@ const App = () => {
                         <SecureRoute path="/animal/add/" component={AddItem('animal')} exact={true}/>
                         <SecureRoute path="/coral/edit/:id" component={EditItem('coral')} exact={true}/>
                         <SecureRoute path="/animal/edit/:id" component={EditItem('animal')} exact={true}/>
+                        <SecureRoute path="/values" component={ShowValues} exact={true}/>
                         <Route path="/" exact={true}>
                             <Redirect to="/home"/>
                         </Route>
